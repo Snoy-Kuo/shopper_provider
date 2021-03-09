@@ -66,11 +66,15 @@ class _CartList extends StatelessWidget {
         trailing: IconButton(
           icon: Icon(Icons.remove_circle_outline),
           onPressed: () {
-            cart.remove(cart.items[index]);
+            cart.remove(cart.items[index].info);
           },
         ),
         title: Text(
-          cart.items[index].name,
+          cart.items[index].info.name,
+          style: itemNameStyle,
+        ),
+        subtitle: Text(
+          '+${cart.items[index].volume}',
           style: itemNameStyle,
         ),
       ),
