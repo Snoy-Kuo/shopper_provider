@@ -16,20 +16,37 @@ class MyCart extends StatelessWidget {
       ),
       body: Container(
         color: Colors.amber,
-        child: Column(
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(32),
-                child: _CartList(),
-              ),
-            ),
-            Divider(height: 4, color: Colors.black),
-            _CartTotal()
-          ],
-        ),
+        child: _CartBody(),
       ),
     );
+  }
+}
+
+class _CartBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var cart = context.watch<CartModel>();
+    if (cart.items.isEmpty) {
+      return Center(
+          child: Text('Nothing in the cart..',
+              style: Theme.of(context)
+                  .textTheme
+                  .headline1!
+                  .copyWith(fontSize: 35)));
+    } else {
+      return Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(32),
+              child: _CartList(),
+            ),
+          ),
+          Divider(height: 4, color: Colors.black),
+          _CartTotal()
+        ],
+      );
+    }
   }
 }
 
