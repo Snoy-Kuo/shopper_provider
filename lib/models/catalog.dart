@@ -41,6 +41,10 @@ class CatalogModel {
     // is also its id.
     return getById(position);
   }
+
+  int getLength() {
+    return itemNames.length;
+  }
 }
 
 @immutable
