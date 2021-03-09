@@ -113,6 +113,9 @@ class _MyListItem extends StatelessWidget {
             Expanded(
               child: Text(item.name, style: textTheme),
             ),
+            SizedBox(width: 10),
+            Text('\$ ${item.price}',
+                style: textTheme!.copyWith(fontSize: 16, color: item.color)),
             SizedBox(width: 24),
             _AddButton(item: item),
           ],

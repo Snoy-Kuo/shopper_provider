@@ -33,7 +33,7 @@ class CatalogModel {
   /// Get item by [id].
   ///
   /// In this sample, the catalog is infinite, looping over [itemNames].
-  Item getById(int id) => Item(id, itemNames[id % itemNames.length]);
+  Item getById(int id) => Item(id, itemNames[id % itemNames.length], id + 56);
 
   /// Get item by its position in the catalog.
   Item getByPosition(int position) {
@@ -48,9 +48,9 @@ class Item {
   final int id;
   final String name;
   final Color color;
-  final int price = 56;
+  final int price;
 
-  Item(this.id, this.name)
+  Item(this.id, this.name, this.price)
       // To make the sample app look nicer, each item is given one of the
       // Material Design primary colors.
       : color = Colors.primaries[id % Colors.primaries.length];
